@@ -1,0 +1,433 @@
+.App {
+  text-align: center;
+}
+
+.App-logo {
+  height: 40vmin;
+  pointer-events: none;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .App-logo {
+    animation: App-logo-spin infinite 20s linear;
+  }
+}
+
+.bgcolor-general{
+  background-color:whitesmoke;
+}
+
+.bgcolor-content{
+  background-color:#EEC4C4;
+}
+
+.App-header {
+  background-color: #282c34;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-size: calc(10px + 2vmin);
+  color: white;
+}
+
+.App-link {
+  color: #61dafb;
+}
+
+@keyframes App-logo-spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.navbar{
+  background-color: #70ADB5;
+}
+
+.navlink {
+  outline: none;
+  margin-right: 0%;
+  line-height: 1.5;
+  color: white;
+}
+
+.navlink:hover {
+  background: none;
+  text-decoration: underline wavy rgb(164, 24, 219);
+  color:white;
+}
+.navlink:active {
+  background: red;
+  color: white;
+}
+
+
+.h-300px{
+  height: 300px;
+}
+
+
+.background-red{
+  background-color: red;
+}
+
+.background-blue{
+  background-color: blue;
+}
+
+.background-purple{
+  background-color: purple;
+}
+
+.background-yellow{
+  background-color: yellow;
+}
+
+.hidden{
+  display: none;
+}
+
+.color-red{
+  color:red;
+}
+
+.ml-center{
+  margin-left: 40%;
+}
+
+.ml-modal-center{
+  margin-left: 40%;
+}
+
+.element-center{
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.ml-40{
+  margin-left: 40%;
+}
+
+.ml-20{
+  margin-left: 20%;
+}
+
+
+.mt-10{
+  margin-top: 10%;
+}
+
+.mt-30{
+  margin-top: 30%;
+}
+
+.w-200px{
+  width: 100px;
+}
+
+.cursor-pointer{
+  cursor: pointer;
+}
+
+
+.w-300px{
+  width: 300px;
+  padding: 1rem;
+  position: absolute;
+  border-radius:8px;
+  overflow: hidden;
+  border: 1px rgb(151, 148, 148);
+  transform: translateX(-45%);
+  background-color: whitesmoke ;
+}
+
+.opacity-low{
+  opacity: .5 !important;
+}
+
+.opacity-unit{
+  opacity: 1 !important;
+}
+
+.error-text{
+  color: red;
+  font-size: 12px;
+  position: relative;
+}
+
+.clientes-buttons{
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.card-body-user{
+  padding: 5px;
+  padding-bottom: 20px;
+  font-size: 13px;
+  border-radius: 12px;
+  box-shadow: 0px 0px 11px -1px rgba(0,0,0,0.2);
+  -webkit-box-shadow: 0px 0px 11px -1px rgba(0,0,0,0.2);
+  -moz-box-shadow: 0px 0px 11px -1px rgba(0,0,0,0.2);
+  transition: bg .10s; 
+  cursor: pointer;
+}
+
+.card-body-user:hover {
+  background: #cbb0eb9c;
+  color:white;
+}
+
+.text-post {
+  overflow: hidden;
+  display: -webkit-box;
+  -webkit-line-clamp: 5;
+  -webkit-box-orient: vertical;
+}
+
+.text-post-view {
+  
+}
+
+.card-body-new{
+  width:200px;
+  padding: 10px;
+  font-size: 13px;
+  border-radius: 12px;
+  box-shadow: 0px 0px 11px -1px rgba(0,0,0,0.2);
+  -webkit-box-shadow: 0px 0px 11px -1px rgba(0,0,0,0.2);
+  -moz-box-shadow: 0px 0px 11px -1px rgba(0,0,0,0.2);
+  transition: black .10s; 
+  cursor: pointer;
+}
+
+.b-example-divider {
+  height: 3rem;
+  background-color: rgba(0, 0, 0, .1);
+  border: solid rgba(0, 0, 0, .15);
+  border-width: 1px 0;
+  box-shadow: inset 0 .5em 1.5em rgba(0, 0, 0, .1), inset 0 .125em .5em rgba(0, 0, 0, .15);
+}
+
+.loading{
+  position: fixed;
+  left: 0px;
+  top: 0px;
+  width: 100%;
+  height: 100%;
+  z-index: 9999;
+  opacity: .8;
+}
+
+@media (min-width: 992px) {
+  .rounded-lg-3 { border-radius: .3rem; }
+}
+ 
+
+
+/*/////-------ESTILOS CARRUSEL--------//////*/
+
+* {
+  margin: 0;
+  padding: 0;
+}
+
+.card-wrapper {
+  position: relative;
+  width: 100%;
+  padding: 0 10px;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+}
+
+.card-wrapper:active, .card-wrapper:hover, .card-wrapper:focus {
+  outline: none;
+  border: none;
+}
+
+.card {
+  width: 100%;
+  height: 450px;
+  border-radius: 16px;
+  overflow: hidden;
+  cursor: pointer;
+  position: relative;
+}
+
+.card .card-image {
+  position: absolute;
+  top: 0px;
+  left: 0px;
+  width: 100%;
+  height: 100%;
+  z-index: 2;
+  background-color: rgb(38, 179, 167);
+  -webkit-transition: .5s;
+  transition: .5s;
+}
+
+.card .card-image img {
+  width: 100%;
+  height: 90%;
+  -o-object-fit: cover;
+     object-fit: cover;
+}
+
+.card:hover img {
+  opacity: .4;
+  -webkit-transition: .5s;
+  transition: .5s;
+}
+
+.card:hover .card-image {
+  -webkit-transform: translateY(-100px);
+          transform: translateY(-100px);
+  -webkit-transition: all .9s;
+  transition: all .9s;
+}
+
+.social-icons {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  -webkit-transform: translate(-50%, -50%);
+          transform: translate(-50%, -50%);
+  z-index: 3;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+.social-icons li {
+  list-style: none;
+}
+
+.social-icons li a {
+  position: relative;
+  display: block;
+  width: 50px;
+  height: 50px;
+  line-height: 50px;
+  text-align: center;
+  background: #fff;
+  font-size: 23px;
+  color: #333;
+  font-weight: bold;
+  margin: 0 6px;
+  -webkit-transition: .4s;
+  transition: .4s;
+  -webkit-transform: translateY(200px);
+          transform: translateY(200px);
+  opacity: 0;
+}
+
+.card:hover .social-icons li a {
+  -webkit-transform: translateY(0px);
+          transform: translateY(0px);
+  opacity: 1;
+}
+
+.social-icons li a:hover {
+  background: #000;
+  -webkit-transition: .2s;
+  transition: .2s;
+}
+
+.details {
+  position: absolute;
+  bottom: 400px;
+  left: 0;
+  background: #fff;
+  width: 100%;
+  height: 120px;
+  z-index: 1;
+  padding: 10px;
+  -webkit-transition: .6s;
+  transition: .6s;
+}
+
+.details h2 {
+  margin: 30px 0;
+  padding: 0;
+  text-align: center;
+}
+
+.details h2 .job-title {
+  font-size: 16px;
+  line-height: 2;
+  color: #333;
+  font-weight: 300;
+  display: block;
+}
+
+.card:hover .details {
+  bottom: 0;
+}
+
+.carousel .slick-dots {
+  bottom: -2.5vw;
+}
+
+.carousel .slick-dots li button {
+  width: 20px;
+  height: 20px;
+  border: 1px solid #fff;
+  border-radius: 20px;
+}
+
+.carousel .slick-dots li button:before {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 10px;
+  height: 10px;
+  border-radius: 10px;
+  content: "";
+  text-align: center;
+  opacity: .5;
+  color: #000;
+  background-color: #fff;
+  -webkit-transform: translate(-50%, -50%);
+          transform: translate(-50%, -50%);
+  -webkit-transition: all .3s ease-in-out;
+  transition: all .3s ease-in-out;
+}
+
+.carousel .slick-dots li.slick-active button, .carousel .slick-dots li:hover button {
+  border-color: tomato;
+}
+
+.carousel .slick-dots li.slick-active button:before, .carousel .slick-dots li:hover button:before {
+  background-color: tomato;
+  opacity: 1;
+}
+
+.carousel .slick-prev, .carousel .slick-next {
+  width: 50px;
+  height: 50px;
+  background-color: rgb(145, 19, 19);
+}
+
+.carousel .slick-prev:hover, .carousel .slick-prev:focus, .carousel .slick-next:hover, .carousel .slick-next:focus {
+  color: rgb(255, 255, 255);
+  outline: none;
+  background: #fff;
+}
+
+.carousel .slick-prev:before, .carousel .slick-next:before {
+  color: #000;
+  font-family: "Raleway", sans-serif;
+}
+
+.carousel .slick-next {
+  right: -55px;
+}
+
+.carousel .slick-prev {
+  left: -55px;
+}
