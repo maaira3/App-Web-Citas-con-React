@@ -27,7 +27,7 @@ from controladores.BlogControlador import *
 from controladores.PagoControlador import *
 
 if __name__ == "__main__":
-    app.run()  
+    app.run(debug=True)  
 
 
 #python3 -m venv venv
