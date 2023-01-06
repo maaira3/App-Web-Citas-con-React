@@ -5,7 +5,7 @@ from modelos.HorariosRepositorio import obtenerHorariosTerapeutaDB,crearHorarios
 from helpers.EstructurarHorarioHelper import crearCalendarioCitas
 from json.decoder import JSONDecodeError
 
-@app.route("/terapeuta/obtenerCalendario",methods=["POST"])
+@app.route("/api/terapeuta/obtenerCalendario",methods=["POST"])
 def obtenerCalendario():
     try:
         #Obtiene los parametros
@@ -43,7 +43,7 @@ def obtenerCalendario():
         return {"status":"not-success","message":str(e)}
 
 
-@app.route("/terapeuta/guardarCalendario",methods=["POST"])
+@app.route("/api/terapeuta/guardarCalendario",methods=["POST"])
 def guardarCalendario():
     try:
         #Obtiene los parametros

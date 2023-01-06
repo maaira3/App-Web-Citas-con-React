@@ -10,7 +10,7 @@ from __main__ import app
 app.config["JWT_SECRET_KEY"] = "dsankldqwp2310953nc812245" 
 jwt = JWTManager(app)
 
-@app.route("/login",methods=['POST'])
+@app.route("/api/login",methods=['POST'])
 def IniciarSesion():
     try:
         #Obtiene los parametros 
@@ -33,7 +33,7 @@ def IniciarSesion():
 
         return {"status":"not-success","message":str(e)}
 
-@app.route("/terapeuta/login",methods=['POST'])
+@app.route("/api/terapeuta/login",methods=['POST'])
 def IniciarSesionTerapeuta():
     try:
         #Obtiene los parametros 
@@ -55,7 +55,7 @@ def IniciarSesionTerapeuta():
 
         return {"status":"not-success","message":str(e)}
 
-@app.route("/administrador/login",methods=['POST'])
+@app.route("/api/administrador/login",methods=['POST'])
 def IniciarSesionAdministrador():
     try:
         #Obtiene los parametros 

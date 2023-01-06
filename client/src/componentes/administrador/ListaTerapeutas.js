@@ -33,7 +33,7 @@ export default function ListaTerapeutas(){
     /*Obtiene la informacion de los terapeutas y les agrega la propiedad de que accion se va a realizar */
     useEffect( ()=>{
 
-        let url = "/obtenerTerapeutas";
+        let url = "/api/obtenerTerapeutas";
 
         let parameters = { tipo:"administrador" };
 
@@ -160,12 +160,12 @@ export default function ListaTerapeutas(){
 
     const guardarCambios = () => {
 
-        let url = "/guardarCambiosTerapeutas";
+        let url = "/api/guardarCambiosTerapeutas";
 
         let parameters = { terapeutas:terapeutas };
 
         const accionThen = (response) =>{
-            window.location.replace("/listaTerapeutas");
+            window.location.replace("/api/listaTerapeutas");
         }
 
         requestPost( url , parameters, accionThen , undefined,setLoading );

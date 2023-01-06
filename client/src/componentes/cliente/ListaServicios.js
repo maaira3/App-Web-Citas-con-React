@@ -23,7 +23,7 @@ useEffect(() => {
 },[])
 
 async function getServices(){
-const { data } = await axios.get("/servicios")
+const { data } = await axios.get("/api/servicios")
 setServicios(data.data)
 }
   return (

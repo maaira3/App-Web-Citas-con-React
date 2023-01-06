@@ -3,7 +3,7 @@ from modelos.AdministradorRepositorio import *
 from json.decoder import JSONDecodeError
 from __main__ import app
 
-@app.route("/citas", methods=['GET'])
+@app.route("/api/citas", methods=['GET'])
 def CitasAdministrador():
     try:
        

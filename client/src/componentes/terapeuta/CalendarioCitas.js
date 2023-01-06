@@ -62,7 +62,7 @@ export default function CalendarioCitas( props ){
 
         let idTerapuetaTmp = props.idTerapeuta;
 
-        let url = "/terapeuta/obtenerCalendario";
+        let url = "/api/terapeuta/obtenerCalendario";
 
         let parameters = { idTerapeuta: idTerapuetaTmp };
 
@@ -756,7 +756,7 @@ export default function CalendarioCitas( props ){
 
     const guardarCalendario = () =>{
 
-        let url = "/terapeuta/guardarCalendario";
+        let url = "/api/terapeuta/guardarCalendario";
 
         let parameters = { idTerapeuta:idTerapeuta, horariosNuevos:horariosNuevos , horariosBorrados:horariosBorrados, horariosActualizados:horariosActualizados};
 

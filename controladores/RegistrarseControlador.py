@@ -26,7 +26,7 @@ Se compone de 2 componentes [status,message] o [status,cliente]
 *cliente -> La informacion del cliente registrado si todo salio bien
 """
 
-@app.route("/registroCrearUsuario",methods=['POST'])
+@app.route("/api/registroCrearUsuario",methods=['POST'])
 def registroCrearUsuario():
     try:
         #Obtiene los parametros del usuario y el tipo de usuario a crear

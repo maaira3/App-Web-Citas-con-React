@@ -22,7 +22,7 @@ async function VerificarPago(){
         const pago = '1';
         console.log(pago)
         /////////////////Inserción de los datos///////////////////////////////
-        const { data } = await axios.post( `pago/update/${idusuario}`, pago );
+        const { data } = await axios.post( `api/pago/update/${idusuario}`, pago );
         localStorage.setItem("pagoServicio", pago)
         window.location.replace("/seleccionarCita")
     }

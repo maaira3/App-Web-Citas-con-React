@@ -15,7 +15,7 @@ export default function Citas() {
     },[])
 
     async function getCitas(){
-        const { data } = await requestGetAwait('citas',{},setLoading);
+        const { data } = await requestGetAwait('api/citas',{},setLoading);
         setCitas(data.data)
     }
 

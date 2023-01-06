@@ -12,7 +12,7 @@ export default function SeleccionTerapeuta() {
     const [loading,setLoading] = useState(false);
     
     async function getTerapeutas(){
-        const { data } = await requestGetAwait("terapeutas",{},setLoading)
+        const { data } = await requestGetAwait("api/terapeutas",{},setLoading)
         setListaTerapeutas(data.data)
     }
 

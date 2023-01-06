@@ -9,7 +9,7 @@ os.makedirs(os.path.join(app.instance_path, 'uploads'), exist_ok=True)
 IMAGE_FOLDER= os.path.join(app.instance_path, 'uploads')
 
 
-@app.route( "/obtenerTerapeutas" , methods=["POST"] )
+@app.route( "/api/obtenerTerapeutas" , methods=["POST"] )
 def obtenerTerapeutas():
     try:
 
@@ -70,7 +70,7 @@ def obtenerTerapeutas():
 
 
 
-@app.route("/guardarCambiosTerapeutas",methods=["POST"])
+@app.route("/api/guardarCambiosTerapeutas",methods=["POST"])
 def guardarCambiosTerapeutas():
 
     try:
@@ -103,6 +103,6 @@ def guardarCambiosTerapeutas():
     except JSONDecodeError as e:
         return { "status":"not-success" , "message": str(e) }
 
-@app.route('/terapeutas/bringImgs/<filename>')
+@app.route('/api/terapeutas/bringImgs/<filename>')
 def uploaded_fileterapeutas(filename):
     return send_from_directory(IMAGE_FOLDER, path=filename, as_attachment=False)

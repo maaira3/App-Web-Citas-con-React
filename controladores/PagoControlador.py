@@ -12,7 +12,7 @@ from modelos.GeneralRepositorio import *
 # Agrega credenciales
 sdk = mercadopago.SDK("TEST-7765166333900586-121221-88c753ab01fe9a07172b544138757ad9-1262017546")
 
-@app.route("/create_preference",methods=["POST"])
+@app.route("/api/create_preference",methods=["POST"])
 def crearPreferencia():
     
     try: 
@@ -31,9 +31,9 @@ def crearPreferencia():
                 }
             ], 
             "back_urls": {
-                "success": "http://localhost:3000/seleccionarCita",
-                "failure": "http://localhost:3000/orden",
-                "pending": "http://localhost:3000/orden"
+                "success": "https://sheltered-plateau-65390.herokuapp.com/seleccionarCita",
+                "failure": "https://sheltered-plateau-65390.herokuapp.com/orden",
+                "pending": "https://sheltered-plateau-65390.herokuapp.com/orden"
             },
             "external_reference": parameters['numsessions'],
         }
@@ -47,7 +47,7 @@ def crearPreferencia():
         return {"status":"not-success","message":str(e)}
 
 
-@app.route("/pago/ipn", methods=['GET'])
+@app.route("/api/pago/ipn", methods=['GET'])
 def IpnPago():
     try:
         payment = "hola"
@@ -60,7 +60,7 @@ def IpnPago():
 
         return {"status":"not-success","message":str(e)}
 
-@app.route("/pago/update/<idusuario>", methods=['POST'])
+@app.route("/api/pago/update/<idusuario>", methods=['POST'])
 def UpdatePago(idusuario):
     try:
         pagoactua = request.json
@@ -74,7 +74,7 @@ def UpdatePago(idusuario):
 
         return {"status":"not-success","message":str(e)}
 
-@app.route("/servicios", methods=['GET'])
+@app.route("/api/servicios", methods=['GET'])
 def Servicios():
     try:
        
@@ -89,7 +89,7 @@ def Servicios():
 
         return {"status":"not-success","message":str(e)}
 
-@app.route("/servicios/nuevo", methods=['POST'])
+@app.route("/api/servicios/nuevo", methods=['POST'])
 def NewServicio():
     try:
         servicio = request.json
@@ -106,7 +106,7 @@ def NewServicio():
         return {"status":"not-success","message":str(e)}
 
 
-@app.route("/servicios/eliminar/<idservicio>", methods=['POST'])
+@app.route("/api/servicios/eliminar/<idservicio>", methods=['POST'])
 def DeleteServicio(idservicio):
     try:
         #Valida si se eliminó el servicio      
@@ -121,7 +121,7 @@ def DeleteServicio(idservicio):
 
         return {"status":"not-success","message":str(e)}
 
-@app.route("/servicios/servicio/update/<idservicio>", methods=['POST'])
+@app.route("/api/servicios/servicio/update/<idservicio>", methods=['POST'])
 def UpdateServicio(idservicio):
     try:
         servicio = request.json

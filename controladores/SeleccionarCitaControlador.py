@@ -11,7 +11,7 @@ import json
 
 
 
-@app.route("/obtenerHorariosTerapeuta",methods=['POST'])
+@app.route("/api/obtenerHorariosTerapeuta",methods=['POST'])
 def obtenerHorariosTerapeuta():
 
     try:
@@ -55,7 +55,7 @@ def obtenerHorariosTerapeuta():
     except JSONDecodeError  as e:    
         return { "status":"not-success", "message": str(e) }
 
-@app.route("/solicitarCita",methods=["POST"])
+@app.route("/api/solicitarCita",methods=["POST"])
 def solicitarCita():
     try:
         #Obtiene los parametros

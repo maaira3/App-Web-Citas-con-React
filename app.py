@@ -4,7 +4,7 @@ from flask_cors import CORS, cross_origin
 app = Flask(__name__, static_folder='client/build', static_url_path='')
 CORS(app)
 
-@app.route("/home")
+@app.route("/api")
 @cross_origin()
 def home():
     return "Hello from flask"

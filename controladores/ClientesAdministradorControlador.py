@@ -3,7 +3,7 @@ from modelos.AdministradorRepositorio import *
 from json.decoder import JSONDecodeError
 from __main__ import app
 
-@app.route("/terapeutas", methods=['GET'])
+@app.route("/api/terapeutas", methods=['GET'])
 def TerapeutasTablaClientes():
     try:
        
@@ -18,7 +18,7 @@ def TerapeutasTablaClientes():
 
         return {"status":"not-success","message":str(e)}
 
-@app.route("/cliente/<idcliente>/<idterapeuta>", methods=['POST'])
+@app.route("/api/cliente/<idcliente>/<idterapeuta>", methods=['POST'])
 def AsignarTerapeuta(idcliente, idterapeuta):
     try:
        

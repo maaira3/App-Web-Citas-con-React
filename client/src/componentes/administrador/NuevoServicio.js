@@ -27,7 +27,7 @@ export default function NuevoServicio() {
     
     async function GuardarServicio(){
         /////////////////Inserción de los datos///////////////////////////////
-        const {data} = await requestPostAwait(`servicios/nuevo`, service,setLoading);
+        const {data} = await requestPostAwait(`api/servicios/nuevo`, service,setLoading);
         
         if(data.data!=="-1"){
             Swal.fire({

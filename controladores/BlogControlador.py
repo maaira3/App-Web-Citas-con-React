@@ -6,7 +6,7 @@ from __main__ import app
 os.makedirs(os.path.join(app.instance_path, 'uploads'), exist_ok=True)
 IMAGE_FOLDER= os.path.join(app.instance_path, 'uploads')
 
-@app.route("/posts", methods=['GET'])
+@app.route("/api/posts", methods=['GET'])
 def PostsBlog():
     try:
        
@@ -21,7 +21,7 @@ def PostsBlog():
 
         return {"status":"not-success","message":str(e)}
 
-@app.route("/blog/post", methods=['POST'])
+@app.route("/api/blog/post", methods=['POST'])
 def NewPostBlog():
     try:
         post = request.json
@@ -37,7 +37,7 @@ def NewPostBlog():
 
         return {"status":"not-success","message":str(e)}
 
-@app.route('/blog/manejoImgs/<idpost>', methods=['PUT'])
+@app.route('/api/blog/manejoImgs/<idpost>', methods=['PUT'])
 def uploadimageBlog(idpost):
     try:
         print(idpost)
@@ -52,11 +52,11 @@ def uploadimageBlog(idpost):
 
         return {"status":"not-success","message":str(e)}
 
-@app.route('/blog/bringImgs/<filename>')
+@app.route('/api/blog/bringImgs/<filename>')
 def uploaded_fileblog(filename):
     return send_from_directory(IMAGE_FOLDER, path=filename, as_attachment=False)
 
-@app.route("/blog/post/<idpost>", methods=['POST'])
+@app.route("/api/blog/post/<idpost>", methods=['POST'])
 def DeletePostBlog(idpost):
     try:
         #Valida si se eliminó el post      
@@ -71,7 +71,7 @@ def DeletePostBlog(idpost):
 
         return {"status":"not-success","message":str(e)}
 
-@app.route("/blog/post/update/<idpost>", methods=['POST'])
+@app.route("/api/blog/post/update/<idpost>", methods=['POST'])
 def UpdatePostBlog(idpost):
     try:
         post = request.json

@@ -17,7 +17,7 @@ export default function Consultas() {
     },[])
 
     async function getConsultas(){
-        const { data } = await requestGetAwait(`Consultas/${idusuario}`,{},setLoading); 
+        const { data } = await requestGetAwait(`api/Consultas/${idusuario}`,{},setLoading); 
         setConsultas(data.data)
     }
 

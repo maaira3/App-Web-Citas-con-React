@@ -22,13 +22,13 @@ export default function Perfil() {
     },[])
 
     async function getUser(){
-        const { data } = await requestGetAwait(`user/${idusuario}/${tipousuario}`,{},setLoading);
+        const { data } = await requestGetAwait(`api/user/${idusuario}/${tipousuario}`,{},setLoading);
         setUser(data.data)
         getHistorialSesiones(data.data.idcliente)
     }
 
     async function getHistorialSesiones(id){
-        const { data } = await requestGetAwait(`HistorialSesiones/${id}`,{},setLoading);
+        const { data } = await requestGetAwait(`api/HistorialSesiones/${id}`,{},setLoading);
         console.log(data.data)
         setHistorialSesiones(data.data)
     }

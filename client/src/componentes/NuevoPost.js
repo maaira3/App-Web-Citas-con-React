@@ -47,7 +47,7 @@ export default function NuevoPost() {
     }
 
     async function setImagen(idpost){
-        const {data} = await requestPutAwait(`blog/manejoImgs/${idpost}`,formDataS,setLoading);
+        const {data} = await requestPutAwait(`api/blog/manejoImgs/${idpost}`,formDataS,setLoading);
         if(data.status==='success'){
             setErrorImagen(false)
         }else{
@@ -57,7 +57,7 @@ export default function NuevoPost() {
     
     async function GuardarPost(){
         /////////////////Inserción de los datos///////////////////////////////
-        const {data} = await requestPostAwait(`blog/post`, post,setLoading);
+        const {data} = await requestPostAwait(`api/blog/post`, post,setLoading);
         /////////////////Inserción de la imagen /////////////////////////////////
         setImagen(data.data)
         

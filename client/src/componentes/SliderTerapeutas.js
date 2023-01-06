@@ -30,12 +30,12 @@ export default function SliderTerapeutas() {
 
     async function getTerapeutas(){
         //Obtiene los terapeutas
-        const { data } = await axios.get(`terapeutas-slider`)
+        const { data } = await axios.get(`api/terapeutas-slider`)
         const listaterapeutas = data.data
         for (var i=0; i<listaterapeutas.length; i++) 
         { 
             var imgblob= listaterapeutas[i].rutaImagen;
-            const resb = await fetch(`terapeutas/bringImgs/${imgblob}`);
+            const resb = await fetch(`api/terapeutas/bringImgs/${imgblob}`);
             const datab = await resb.blob();
             var url= URL.createObjectURL(datab)
             listaterapeutas[i].rutaImagen=url

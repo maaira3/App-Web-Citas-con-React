@@ -9,7 +9,7 @@ from __main__ import app
 os.makedirs(os.path.join(app.instance_path, 'uploads'), exist_ok=True)
 IMAGE_FOLDER= os.path.join(app.instance_path, 'uploads')
 
-@app.route("/user/<idusuario>/<tipo>",methods=['GET'])
+@app.route("/api/user/<idusuario>/<tipo>",methods=['GET'])
 def getUser(idusuario,tipo):
     try:
         #Valida si el usuario y contraseña existe en la base de datos      
@@ -24,7 +24,7 @@ def getUser(idusuario,tipo):
 
         return {"status":"not-success","message":str(e)}
 
-@app.route("/HistorialSesiones/<id>/<tipousuario>",methods=['GET'])
+@app.route("/api/HistorialSesiones/<id>/<tipousuario>",methods=['GET'])
 def getHistorialSesiones(id,tipousuario):
     try:
         #Valida si el usuario tiene historial de sesiones     
@@ -38,7 +38,7 @@ def getHistorialSesiones(id,tipousuario):
 
         return {"status":"not-success","message":str(e)}
 
-@app.route("/ModificarPerfil/<idusuario>/<tipousuario>",methods=['POST'])
+@app.route("/api/ModificarPerfil/<idusuario>/<tipousuario>",methods=['POST'])
 def ModificarPerfil(idusuario,tipousuario):
     try:
         usuario = request.json
@@ -52,7 +52,7 @@ def ModificarPerfil(idusuario,tipousuario):
 
         return {"status":"not-success","message":str(e)}
 
-@app.route("/ContrasenaUsuario/<idusuario>",methods=['GET'])
+@app.route("/api/ContrasenaUsuario/<idusuario>",methods=['GET'])
 def UsuarioContrasena(idusuario):
     try:
         contrasena = EncontrarContrasena(idusuario)
@@ -65,7 +65,7 @@ def UsuarioContrasena(idusuario):
 
         return {"status":"not-success","message":str(e)}
 
-@app.route("/ActualizarContrasena/<idusuario>",methods=['POST'])
+@app.route("/api/ActualizarContrasena/<idusuario>",methods=['POST'])
 def ActualizarContrasena(idusuario):
     try:
         contrasena = request.json
@@ -79,7 +79,7 @@ def ActualizarContrasena(idusuario):
 
         return {"status":"not-success","message":str(e)}
 
-@app.route('/manejoImgs/<idusuario>', methods=['PUT'])
+@app.route('/api/manejoImgs/<idusuario>', methods=['PUT'])
 def uploadimage(idusuario):
     try:
         imagenfile = request.files
@@ -93,6 +93,6 @@ def uploadimage(idusuario):
 
         return {"status":"not-success","message":str(e)}
         
-@app.route('/bringImgs/<filename>')
+@app.route('/api/bringImgs/<filename>')
 def uploaded_file(filename):
     return send_from_directory(IMAGE_FOLDER, path=filename, as_attachment=False)

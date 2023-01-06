@@ -20,7 +20,7 @@ export default function Horarios()
     //Obtiene los horarios disponibles del terapeuta asignado a ese cliente
     useEffect ( ()=> {
 
-        let url = "/obtenerHorariosTerapeuta";
+        let url = "/api/obtenerHorariosTerapeuta";
 
         let parameters = { idCliente: idCliente };
 
@@ -102,7 +102,7 @@ export default function Horarios()
 
         let horario = fecha + " " + hora;
 
-        let url = "/solicitarCita"
+        let url = "/api/solicitarCita"
 
         let parameters = { horario:horario , idCliente:idCliente }
 

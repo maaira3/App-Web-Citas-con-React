@@ -40,7 +40,7 @@ export default function ModificarContrasena() {
     }
 
     async function getPassword(){
-        const { data } = await requestGetAwait(`ContrasenaUsuario/${idusuario}`,setLoading); 
+        const { data } = await requestGetAwait(`api/ContrasenaUsuario/${idusuario}`,setLoading); 
         setContrasenaUsuario(data.data.password)
     }
 
@@ -51,7 +51,7 @@ export default function ModificarContrasena() {
 
     async function setPassword(){
         const obj = {password:contrasena.nueva}
-        const {data} = await requestPostAwait(`ActualizarContrasena/${idusuario}`,obj,setLoading);
+        const {data} = await requestPostAwait(`api/ActualizarContrasena/${idusuario}`,obj,setLoading);
         if(data.status==="success"){
             Swal.fire({
                 icon: 'success',

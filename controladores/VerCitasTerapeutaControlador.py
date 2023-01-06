@@ -5,7 +5,7 @@ from modelos.GeneralRepositorio import *
 from json.decoder import JSONDecodeError
 from __main__ import app
 
-@app.route("/Consultas/<idusuario>",methods=['GET'])
+@app.route("/api/Consultas/<idusuario>",methods=['GET'])
 def getCitas(idusuario):
     try:
         #Valida si el usuario tiene consultas    

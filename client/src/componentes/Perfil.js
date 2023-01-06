@@ -22,7 +22,7 @@ export default function Perfil() {
     },[])
 
     async function getUser(){
-        const { data } = await requestGetAwait(`user/${idusuario}/${tipousuario}`,{},setLoading);
+        const { data } = await requestGetAwait(`api/user/${idusuario}/${tipousuario}`,{},setLoading);
         if(data.data!==0){
             setUser(data.data)
             if(tipousuario==='terapeuta'){
@@ -31,7 +31,7 @@ export default function Perfil() {
                 if(imgblob===null){
                     setImagebinary(null)
                 }else{
-                    const resb = await fetch(`bringImgs/${imgblob}`);
+                    const resb = await fetch(`api/bringImgs/${imgblob}`);
                     const datab = await resb.blob();
                     var sauce= URL.createObjectURL(datab)
                     setImagebinary(sauce)
@@ -45,7 +45,7 @@ export default function Perfil() {
     }
 
     async function getHistorialSesiones(id){
-        const { data } = await requestGetAwait(`HistorialSesiones/${id}/${tipousuario}`,{},setLoading);
+        const { data } = await requestGetAwait(`api/HistorialSesiones/${id}/${tipousuario}`,{},setLoading);
         setHistorialSesiones(data.data)
     }
 

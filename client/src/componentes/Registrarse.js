@@ -77,7 +77,7 @@ export default function Registrarse()
     //Solicita al servidor crear un nuevo cliente si todos los campos son validos
     const crearUsuario = () => 
     {
-        let url = "/registroCrearUsuario";
+        let url = "/api/registroCrearUsuario";
 
         let tipoUsuario = "";
 

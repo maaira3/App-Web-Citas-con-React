@@ -44,7 +44,7 @@ export default function FormLogin() {
         const error= validateInfo(1)  
         if (error.type===0)
         {
-            const {data}= await requestPostAwait( 'login' , values,setLoading );
+            const {data}= await requestPostAwait( 'api/login' , values,setLoading );
             console.log(data)
             console.log( data.data )
             if (data.data!='not-success')
