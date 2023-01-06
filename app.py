@@ -4,9 +4,9 @@ from flask_cors import CORS, cross_origin
 app = Flask(__name__, static_folder='client/build', static_url_path='')
 CORS(app)
 
-@app.route("/api")
+@app.route("/api", methods=['GET'])
 @cross_origin()
-def home():
+def index():
     return "Hello from flask"
 
 @app.route("/")
@@ -27,7 +27,7 @@ from controladores.BlogControlador import *
 from controladores.PagoControlador import *
 
 if __name__ == "__main__":
-    app.run( host='0.0.0.0', debug=False, port=os.environ.get('PORT', 80))  
+    app.run( )  
 
 
 #python3 -m venv venv
