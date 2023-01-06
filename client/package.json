@@ -2,7 +2,7 @@
   "name": "client",
   "version": "0.1.0",
   "private": true,
-  "proxy": "https://shielded-ocean-34550.herokuapp.com/",
+  "proxy": "https://sheltered-plateau-65390.herokuapp.com",
   "dependencies": {
     "@mui/icons-material": "^5.3.0",
     "@mui/material": "^5.3.0",
