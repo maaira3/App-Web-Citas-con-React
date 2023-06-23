@@ -2,6 +2,8 @@ import  { React, useEffect, useState } from 'react'
 import {requestGetAwait} from "../../helpers/Request";
 import Loading from "../Loading";
 
+const baseURL = process.env.REACT_APP_API_URL
+
 export default function Citas() {
     const [ citas, setCitas ] = useState([])
 
@@ -15,7 +17,7 @@ export default function Citas() {
     },[])
 
     async function getCitas(){
-        const { data } = await requestGetAwait('api/citas',{},setLoading);
+        const { data } = await requestGetAwait(baseURL + 'api/citas',{},setLoading);
         setCitas(data.data)
     }
 

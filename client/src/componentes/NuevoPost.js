@@ -7,6 +7,7 @@ import Swal from 'sweetalert2'
 import { requestPutAwait, requestPostAwait} from "../helpers/Request"
 import Loading from "./Loading";
 
+const baseURL = process.env.REACT_APP_API_URL
 
 export default function NuevoPost() {
 
@@ -47,7 +48,7 @@ export default function NuevoPost() {
     }
 
     async function setImagen(idpost){
-        const {data} = await requestPutAwait(`api/blog/manejoImgs/${idpost}`,formDataS,setLoading);
+        const {data} = await requestPutAwait(baseURL + `api/blog/manejoImgs/${idpost}`,formDataS,setLoading);
         if(data.status==='success'){
             setErrorImagen(false)
         }else{
@@ -57,7 +58,7 @@ export default function NuevoPost() {
     
     async function GuardarPost(){
         /////////////////Inserción de los datos///////////////////////////////
-        const {data} = await requestPostAwait(`api/blog/post`, post,setLoading);
+        const {data} = await requestPostAwait(baseURL + `api/blog/post`, post,setLoading);
         /////////////////Inserción de la imagen /////////////////////////////////
         setImagen(data.data)
         

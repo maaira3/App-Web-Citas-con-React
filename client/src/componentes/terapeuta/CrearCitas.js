@@ -5,8 +5,6 @@ const idTerapeuta = localStorage.getItem('idTerapeuta')
 
 export default  function CrearCitas(){
 
-    
-
     return(
         <>
             <BarraPrincipalTerapeuta/>

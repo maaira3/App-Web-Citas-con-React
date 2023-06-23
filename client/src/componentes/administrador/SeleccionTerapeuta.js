@@ -3,16 +3,13 @@ import { requestGetAwait} from "../../helpers/Request";
 
 import Loading from "../Loading";
 
-
-
-
 export default function SeleccionTerapeuta() {
     const [ idterapeuta, setIdTerapeuta] = useState("0")
     const [listaterapeutas, setListaTerapeutas] = useState([])
     const [loading,setLoading] = useState(false);
     
     async function getTerapeutas(){
-        const { data } = await requestGetAwait("api/terapeutas",{},setLoading)
+        const { data } = await requestGetAwait(baseURL + "api/terapeutas",{},setLoading)
         setListaTerapeutas(data.data)
     }
 

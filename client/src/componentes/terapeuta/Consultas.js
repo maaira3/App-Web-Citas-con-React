@@ -2,9 +2,7 @@ import {React, useEffect, useState} from 'react'
 import {requestGetAwait} from "../../helpers/Request";
 import Loading from "../Loading";
 
-
-
-
+const baseURL = process.env.REACT_APP_API_URL
 const idusuario = localStorage.getItem('id')
 
 export default function Consultas() {
@@ -17,7 +15,7 @@ export default function Consultas() {
     },[])
 
     async function getConsultas(){
-        const { data } = await requestGetAwait(`api/Consultas/${idusuario}`,{},setLoading); 
+        const { data } = await requestGetAwait(baseURL + `api/Consultas/${idusuario}`,{},setLoading); 
         setConsultas(data.data)
     }
 

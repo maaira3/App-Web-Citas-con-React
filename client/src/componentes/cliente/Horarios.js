@@ -4,8 +4,10 @@ import Table from 'react-bootstrap/Table';
 import Swal from 'sweetalert2'
 import withReactContent from 'sweetalert2-react-content'
 import Loading from "../Loading";
-const idCliente = localStorage.getItem('idCliente')
 
+const idCliente = localStorage.getItem('idCliente')
+const baseURL = process.env.REACT_APP_API_URL
+console.log(baseURL)
 
 export default function Horarios()
 {
@@ -20,7 +22,7 @@ export default function Horarios()
     //Obtiene los horarios disponibles del terapeuta asignado a ese cliente
     useEffect ( ()=> {
 
-        let url = "/api/obtenerHorariosTerapeuta";
+        let url =baseURL + "api/obtenerHorariosTerapeuta";
 
         let parameters = { idCliente: idCliente };
 
@@ -53,7 +55,7 @@ export default function Horarios()
                 }
         }
 
-        requestPost( url , parameters , accionThen , undefined, setLoading  );
+        requestPost(url , parameters , accionThen , undefined, setLoading  );
 
         // eslint-disable-next-line react-hooks/exhaustive-deps
     } , [] )
@@ -102,7 +104,7 @@ export default function Horarios()
 
         let horario = fecha + " " + hora;
 
-        let url = "/api/solicitarCita"
+        let url = baseURL + "api/solicitarCita"
 
         let parameters = { horario:horario , idCliente:idCliente }
 

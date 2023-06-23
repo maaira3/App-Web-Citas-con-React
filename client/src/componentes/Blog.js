@@ -8,6 +8,7 @@ import NuevoPost from './NuevoPost';
 import Loading from "./Loading";
 
 const tipousuario = localStorage.getItem('tipo')
+const baseURL = process.env.REACT_APP_API_URL
 
 export default function Blog() {
     const [ listposts, setListPosts] = useState([])
@@ -19,13 +20,14 @@ export default function Blog() {
 
     async function getPosts(){
         //Obtiene los posts del blog
-        const { data } = await requestGetAwait("api/posts",{},setLoading);
+        const { data } = await requestGetAwait( baseURL + "api/posts",{},setLoading);
         const listapost = data.data
+        console.log(listapost);
 
         for (var i=0; i<listapost.length; i++) 
         { 
             var imgblob= listapost[i].imagenpost;
-            const resb = await fetch(`api/blog/bringImgs/${imgblob}`);
+            const resb = await fetch(baseURL + `api/blog/bringImgs/${imgblob}`);
             const datab = await resb.blob();
             var url= URL.createObjectURL(datab)
             listapost[i].imagenpost=url

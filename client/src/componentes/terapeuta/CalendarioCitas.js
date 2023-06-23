@@ -10,8 +10,7 @@ import {AiOutlineClose} from "react-icons/ai";
 import {AiOutlineReload} from "react-icons/ai";
 import Loading from "../Loading";
 
-
-
+const baseURL = process.env.REACT_APP_API_URL
 
 export default function CalendarioCitas( props ){
 
@@ -62,7 +61,7 @@ export default function CalendarioCitas( props ){
 
         let idTerapuetaTmp = props.idTerapeuta;
 
-        let url = "/api/terapeuta/obtenerCalendario";
+        let url = baseURL + "api/terapeuta/obtenerCalendario";
 
         let parameters = { idTerapeuta: idTerapuetaTmp };
 
@@ -756,7 +755,7 @@ export default function CalendarioCitas( props ){
 
     const guardarCalendario = () =>{
 
-        let url = "/api/terapeuta/guardarCalendario";
+        let url = baseURL + "api/terapeuta/guardarCalendario";
 
         let parameters = { idTerapeuta:idTerapeuta, horariosNuevos:horariosNuevos , horariosBorrados:horariosBorrados, horariosActualizados:horariosActualizados};
 

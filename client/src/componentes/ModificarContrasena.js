@@ -6,9 +6,7 @@ import Swal from 'sweetalert2'
 import BarraPrincipalTerapeuta from './terapeuta/BarraPrincipalTerapeuta';
 import Loading from "./Loading";
 
-
-
-
+const baseURL = process.env.REACT_APP_API_URL
 const idusuario = localStorage.getItem('id')
 const tipousuario = localStorage.getItem('tipo')
 
@@ -40,7 +38,7 @@ export default function ModificarContrasena() {
     }
 
     async function getPassword(){
-        const { data } = await requestGetAwait(`api/ContrasenaUsuario/${idusuario}`,setLoading); 
+        const { data } = await requestGetAwait(baseURL + `api/ContrasenaUsuario/${idusuario}`,setLoading); 
         setContrasenaUsuario(data.data.password)
     }
 
@@ -51,7 +49,7 @@ export default function ModificarContrasena() {
 
     async function setPassword(){
         const obj = {password:contrasena.nueva}
-        const {data} = await requestPostAwait(`api/ActualizarContrasena/${idusuario}`,obj,setLoading);
+        const {data} = await requestPostAwait(baseURL +`api/ActualizarContrasena/${idusuario}`,obj,setLoading);
         if(data.status==="success"){
             Swal.fire({
                 icon: 'success',

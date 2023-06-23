@@ -5,6 +5,7 @@ import Swal from 'sweetalert2'
 import {deletePost, requestPostAwait, requestPutAwait } from "../helpers/Request"
 
 const tipousuario = localStorage.getItem('tipo')
+const baseURL = process.env.REACT_APP_API_URL
 
 export default function Post(props) {
 
@@ -104,7 +105,7 @@ export default function Post(props) {
     
     async function setImagen(){
         console.log(formDataS)
-        const {data} = await requestPutAwait(`api/blog/manejoImgs/${props.idpost}`,formDataS,setLoading);
+        const {data} = await requestPutAwait(baseURL + `api/blog/manejoImgs/${props.idpost}`,formDataS,setLoading);
         if(data.status==='success'){
             setErrorImagen(false)
         }else{
@@ -118,7 +119,7 @@ export default function Post(props) {
             contenido : post.contenido
         }
         /////////////////Inserción de los datos///////////////////////////////
-        const { data } = await requestPostAwait( `api/blog/post/update/${idpost}` , obj, setLoading )
+        const { data } = await requestPostAwait(baseURL + `api/blog/post/update/${idpost}` , obj, setLoading )
         /////////////////Inserción de la imagen /////////////////////////////////
         if(imagebinary!==null)
           setImagen()

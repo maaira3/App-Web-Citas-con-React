@@ -6,6 +6,7 @@ import axios from 'axios' //npm i axios
 import requestPostAwait from "../../helpers/Request"
 
 const tipousuario = localStorage.getItem('tipo')
+const baseURL = process.env.REACT_APP_API_URL
 
 export default function Servicio(props) {
 
@@ -48,7 +49,7 @@ export default function Servicio(props) {
   async function guardarServicio(id){
 
     /////////////////Inserción de los datos///////////////////////////////
-    const {data} = await axios.post(`api/servicios/servicio/update/${id}`, servicioedit);
+    const {data} = await axios.post(baseURL + `api/servicios/servicio/update/${id}`, servicioedit);
 
     if(data.status==="success"){
         Swal.fire({
@@ -127,7 +128,7 @@ export default function Servicio(props) {
             'El servicio ha sido eliminado de forma correcta.',
             'success'
           )
-          const { data } = axios.post(`/api/servicios/eliminar/${id}`)
+          const { data } = axios.post(baseURL + `/api/servicios/eliminar/${id}`)
           window.location.replace('/servicios');
         } else if (
           /* Read more about handling dismissals below */

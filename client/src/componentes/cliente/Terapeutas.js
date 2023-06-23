@@ -7,6 +7,8 @@ import CardTerapeuta from "../CardTerapeuta";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 
+const baseURL = process.env.REACT_APP_API_URL
+
 export default function Terapeutas()
 {
     const [terapeutas,setTerapeutas] = useState([]);
@@ -16,7 +18,7 @@ export default function Terapeutas()
     for (var i=0; i<listaterapeutas.length; i++) 
         { 
             var imgblob= listaterapeutas[i].rutaImagen;
-            const resb = await fetch(`api/terapeutas/bringImgs/${imgblob}`);
+            const resb = await fetch(baseURL + `api/terapeutas/bringImgs/${imgblob}`);
             const datab = await resb.blob();
             var url= URL.createObjectURL(datab)
             listaterapeutas[i].rutaImagen=url
@@ -25,7 +27,7 @@ export default function Terapeutas()
     }
 
     useEffect( () => {
-        let url = "/api/obtenerTerapeutas";
+        let url = baseURL + "api/obtenerTerapeutas";
         let parameters = {tipo:"cliente"};
 
         const accionThen = (response)=>{

@@ -5,6 +5,7 @@ import axios from 'axios' //npm i axios
 import {requestPostAwait } from "../../helpers/Request"
 
 const idusuario = localStorage.getItem('id')
+const baseURL = process.env.REACT_APP_API_URL
 
 export default function SeleccionarCita()
 {
@@ -22,7 +23,7 @@ async function VerificarPago(){
         const pago = '1';
         console.log(pago)
         /////////////////Inserción de los datos///////////////////////////////
-        const { data } = await axios.post( `api/pago/update/${idusuario}`, pago );
+        const { data } = await axios.post( baseURL + `${idusuario}`, pago );
         localStorage.setItem("pagoServicio", pago)
         window.location.replace("/seleccionarCita")
     }

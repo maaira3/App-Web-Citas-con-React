@@ -5,8 +5,7 @@ import  { React, useEffect, useState } from 'react'
 import TablaHistorial from './TablaHistorial'
 import Loading from "../Loading";
 
-
-
+const baseURL = process.env.REACT_APP_API_URL
 const tipousuario = localStorage.getItem('tipo')
 const idusuario = localStorage.getItem('id')
 
@@ -22,13 +21,13 @@ export default function Perfil() {
     },[])
 
     async function getUser(){
-        const { data } = await requestGetAwait(`api/user/${idusuario}/${tipousuario}`,{},setLoading);
+        const { data } = await requestGetAwait(baseURL + `api/user/${idusuario}/${tipousuario}`,{},setLoading);
         setUser(data.data)
         getHistorialSesiones(data.data.idcliente)
     }
 
     async function getHistorialSesiones(id){
-        const { data } = await requestGetAwait(`api/HistorialSesiones/${id}`,{},setLoading);
+        const { data } = await requestGetAwait(baseURL + `api/HistorialSesiones/${id}`,{},setLoading);
         console.log(data.data)
         setHistorialSesiones(data.data)
     }

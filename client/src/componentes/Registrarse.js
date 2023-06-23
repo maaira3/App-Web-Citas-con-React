@@ -8,6 +8,7 @@ import {validarCampos} from "../helpers/ValidacionesFormulario";
 import Loading from "./Loading";
 
 const tipo = localStorage.getItem('tipo')
+const baseURL = process.env.REACT_APP_API_URL
 
 export default function Registrarse()
 {
@@ -77,7 +78,7 @@ export default function Registrarse()
     //Solicita al servidor crear un nuevo cliente si todos los campos son validos
     const crearUsuario = () => 
     {
-        let url = "/api/registroCrearUsuario";
+        let url = baseURL + "api/registroCrearUsuario";
 
         let tipoUsuario = "";
 

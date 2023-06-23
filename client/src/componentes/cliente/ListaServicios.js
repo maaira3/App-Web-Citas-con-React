@@ -6,6 +6,7 @@ import Pago from './Pago';
 import NuevoServicio from "../administrador/NuevoServicio";
 
 const tipousuario = localStorage.getItem('tipo')
+const baseURL = process.env.REACT_APP_API_URL
 
 export default function ListaServicios() {
   const [servicios,setServicios] = useState([]);
@@ -23,7 +24,7 @@ useEffect(() => {
 },[])
 
 async function getServices(){
-const { data } = await axios.get("/api/servicios")
+const { data } = await axios.get(baseURL + "api/servicios")
 setServicios(data.data)
 }
   return (

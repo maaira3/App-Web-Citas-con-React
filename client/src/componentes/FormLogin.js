@@ -5,8 +5,10 @@ import { NavLink } from 'react-router-dom'
 import axios from 'axios';
 import {requestPostAwait} from "../helpers/Request"
 import Loading from "./Loading";
+
 const token = localStorage.getItem('token')
 const tipo = localStorage.getItem('tipo')
+const baseURL = process.env.REACT_APP_API_URL
 
 export default function FormLogin() {
     const [errors, setErrors] = useState({msg:'', type:0})
@@ -44,7 +46,7 @@ export default function FormLogin() {
         const error= validateInfo(1)  
         if (error.type===0)
         {
-            const {data}= await requestPostAwait( 'api/login' , values,setLoading );
+            const {data}= await requestPostAwait(baseURL + 'api/login' , values,setLoading );
             console.log(data)
             console.log( data.data )
             if (data.data!='not-success')

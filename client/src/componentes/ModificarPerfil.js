@@ -6,7 +6,7 @@ import Swal from 'sweetalert2'
 import BarraPrincipalTerapeuta from './terapeuta/BarraPrincipalTerapeuta';
 import Loading from "./Loading";
 
-
+const baseURL = process.env.REACT_APP_API_URL
 const tipousuario = localStorage.getItem('tipo')
 const idusuario = localStorage.getItem('id')
 
@@ -20,7 +20,7 @@ export default function ModificarPerfil() {
 
 
     async function getUser(){
-        const { data } = await requestGetAwait(`api/user/${idusuario}/${tipousuario}`,{},setLoading);
+        const { data } = await requestGetAwait(baseURL + `api/user/${idusuario}/${tipousuario}`,{},setLoading);
         setUser(data.data)
 
         if(tipousuario==='terapeuta'){
@@ -28,7 +28,7 @@ export default function ModificarPerfil() {
             if(imgblob===null){
                 setImagebinary(null)
             }else{
-                const resb = await fetch(`api/bringImgs/${imgblob}`);
+                const resb = await fetch(baseURL + `api/bringImgs/${imgblob}`);
                 const datab = await resb.blob();
                 var sauce= URL.createObjectURL(datab)
                 setImagebinary(sauce)
@@ -76,7 +76,7 @@ export default function ModificarPerfil() {
 
       async function setImagen(){
         console.log(formDataS)
-        const {data} = await requestPutAwait(`api/manejoImgs/${idusuario}`,formDataS,setLoading);
+        const {data} = await requestPutAwait(baseURL + `api/manejoImgs/${idusuario}`,formDataS,setLoading);
         if(data.status==='success'){
             setErrorImagen(false)
         }else{
@@ -94,7 +94,7 @@ export default function ModificarPerfil() {
         }
 
         /////////////////Inserción de los datos///////////////////////////////
-        const {data} = await requestPostAwait(`api/ModificarPerfil/${idusuario}/${tipousuario}`,obj,setLoading);
+        const {data} = await requestPostAwait(baseURL + `api/ModificarPerfil/${idusuario}/${tipousuario}`,obj,setLoading);
         /////////////////Inserción de la imagen /////////////////////////////////
         setImagen()
         

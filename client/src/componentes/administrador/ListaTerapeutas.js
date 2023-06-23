@@ -8,6 +8,8 @@ import ModalModificarHorario from './ModalModificarHorario'
 import {requestPost} from "../../helpers/Request";
 import Loading from "../Loading";
 
+const baseURL = process.env.REACT_APP_API_URL
+
 export default function ListaTerapeutas(){
 
     const [terapeutas,setTerapeutas] = useState( [] );
@@ -33,7 +35,7 @@ export default function ListaTerapeutas(){
     /*Obtiene la informacion de los terapeutas y les agrega la propiedad de que accion se va a realizar */
     useEffect( ()=>{
 
-        let url = "/api/obtenerTerapeutas";
+        let url = baseURL + "api/obtenerTerapeutas";
 
         let parameters = { tipo:"administrador" };
 
@@ -160,12 +162,12 @@ export default function ListaTerapeutas(){
 
     const guardarCambios = () => {
 
-        let url = "/api/guardarCambiosTerapeutas";
+        let url = baseURL + "api/guardarCambiosTerapeutas";
 
         let parameters = { terapeutas:terapeutas };
 
         const accionThen = (response) =>{
-            window.location.replace("/api/listaTerapeutas");
+            window.location.replace( baseURL + "api/listaTerapeutas");
         }
 
         requestPost( url , parameters, accionThen , undefined,setLoading );

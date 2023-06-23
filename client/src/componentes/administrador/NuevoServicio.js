@@ -4,6 +4,8 @@ import Button from 'react-bootstrap/Button'
 import Swal from 'sweetalert2'
 import {requestPostAwait} from "../../helpers/Request"
 
+const baseURL = process.env.REACT_APP_API_URL
+
 export default function NuevoServicio() {
     const [show, setShow] = useState(false);
     const [loading,setLoading] = useState(false);
@@ -27,7 +29,7 @@ export default function NuevoServicio() {
     
     async function GuardarServicio(){
         /////////////////Inserción de los datos///////////////////////////////
-        const {data} = await requestPostAwait(`api/servicios/nuevo`, service,setLoading);
+        const {data} = await requestPostAwait(baseURL + `api/servicios/nuevo`, service,setLoading);
         
         if(data.data!=="-1"){
             Swal.fire({

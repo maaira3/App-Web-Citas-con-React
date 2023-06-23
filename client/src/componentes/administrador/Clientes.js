@@ -2,7 +2,7 @@ import  { React, useEffect, useState } from 'react'
 import {requestGetAwait, requestPostAwait} from "../../helpers/Request";
 import Loading from "../Loading";
 
-
+const baseURL = process.env.REACT_APP_API_URL
 
 export default function Clientes() {
     const [ citas, setCitas ] = useState([])
@@ -19,14 +19,14 @@ export default function Clientes() {
 
     async function getCitas(){
       //Obtiene la informacion de los clientes
-        const { data } = await requestGetAwait('api/citas',{},setLoading)
+        const { data } = await requestGetAwait(baseURL + 'api/citas',{},setLoading)
         setCitas(data.data)
         ArrayIdTerapeutas(data.data)
     }
 
     async function getTerapeutas(){
       //Obtiene la lista de los terapeutas
-      const { data } = await requestGetAwait('api/terapeutas',{},setLoading);
+      const { data } = await requestGetAwait(baseURL + 'api/terapeutas',{},setLoading);
       console.log( "terapeutas" , data.data)
       setListaTerapeutas(data.data)
     }
@@ -44,7 +44,7 @@ export default function Clientes() {
 
     async function AsignarTerapeuta(idcliente, idterapeuta){
       //Se actualiza el id del terapeuta en la tabla de cliente
-      const { data } = await requestPostAwait(`api/cliente/${idcliente}/${idterapeuta}`,{},setLoading);
+      const { data } = await requestPostAwait(baseURL + `api/cliente/${idcliente}/${idterapeuta}`,{},setLoading);
     }
 
     function GuardarTerapeutas(){
